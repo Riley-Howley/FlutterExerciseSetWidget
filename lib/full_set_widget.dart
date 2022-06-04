@@ -41,7 +41,12 @@ class _FullSetWidgetState extends State<FullSetWidget> {
         ),
         ElevatedButton(
           onPressed: () {
-            listOfSets.add(new Set_row(count++, 0, 0, false));
+            listOfSets.add(new Set_row(
+              count++,
+              0,
+              0,
+              false,
+            ));
             setState(() {});
           },
           child: Text(

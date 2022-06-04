@@ -22,14 +22,6 @@ class _Set_rowState extends State<Set_row> {
 
   @override
   Widget build(BuildContext context) {
-    // lis.length >= 1
-    //     ? kgController.text =
-    //         listFinishedSets[listFinishedSets.length].kg.toString()
-    //     : kgController.text = "";
-    // listFinishedSets.length >= 1
-    //     ? repController.text =
-    //         listFinishedSets[listFinishedSets.length].rep.toString()
-    //     : kgController.text = "";
     return Container(
       margin: EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
@@ -111,10 +103,11 @@ class _Set_rowState extends State<Set_row> {
               ? IconButton(
                   onPressed: () {
                     listFinishedSets.add(new Set_row(
-                        widget.id,
-                        int.parse(kgController.text),
-                        int.parse(repController.text),
-                        widget.isChecked));
+                      widget.id,
+                      int.parse(kgController.text),
+                      int.parse(repController.text),
+                      widget.isChecked,
+                    ));
                     setState(() {
                       widget.isChecked = !widget.isChecked;
                     });
