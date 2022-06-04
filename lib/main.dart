@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:multi_listview/exercise.dart';
 import 'package:multi_listview/full_set_widget.dart';
 import 'package:multi_listview/set_row.dart';
+import 'package:multi_listview/workout_finished_screen.dart';
 
 List<Set_row> list = [];
-
+List<Set_row> listFinishedSets = [];
 List<Exercise> listExercises = [];
 
 void main() {
@@ -17,11 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Sets'),
     );
   }
 }
@@ -36,14 +38,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Set_row> listFinishedSets = [];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 48, 48, 48),
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => MyWidget(),
+                ));
+              },
+              child: Text(
+                "Finish Workout",
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(

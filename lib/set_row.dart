@@ -19,8 +19,17 @@ class Set_row extends StatefulWidget {
 class _Set_rowState extends State<Set_row> {
   var kgController = TextEditingController();
   var repController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    // lis.length >= 1
+    //     ? kgController.text =
+    //         listFinishedSets[listFinishedSets.length].kg.toString()
+    //     : kgController.text = "";
+    // listFinishedSets.length >= 1
+    //     ? repController.text =
+    //         listFinishedSets[listFinishedSets.length].rep.toString()
+    //     : kgController.text = "";
     return Container(
       margin: EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
@@ -101,7 +110,7 @@ class _Set_rowState extends State<Set_row> {
           !widget.isChecked
               ? IconButton(
                   onPressed: () {
-                    list.add(new Set_row(
+                    listFinishedSets.add(new Set_row(
                         widget.id,
                         int.parse(kgController.text),
                         int.parse(repController.text),
@@ -109,8 +118,6 @@ class _Set_rowState extends State<Set_row> {
                     setState(() {
                       widget.isChecked = !widget.isChecked;
                     });
-
-                    print(list);
                   },
                   icon: Icon(
                     Icons.check_box_outline_blank,
@@ -119,11 +126,10 @@ class _Set_rowState extends State<Set_row> {
                 )
               : IconButton(
                   onPressed: () {
-                    list.removeWhere((set) => set.id == widget.id);
+                    listFinishedSets.removeWhere((set) => set.id == widget.id);
                     setState(() {
                       widget.isChecked = !widget.isChecked;
                     });
-                    print(list);
                   },
                   icon: Icon(
                     Icons.check_box_rounded,

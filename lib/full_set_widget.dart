@@ -18,11 +18,14 @@ class _FullSetWidgetState extends State<FullSetWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: Text(
-            listExercises[widget.nameIndex].ExerciseName,
-            style: TextStyle(color: Colors.white, fontSize: 20),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10.0),
+            child: Text(
+              listExercises[widget.nameIndex].ExerciseName,
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
           ),
         ),
         FormattedSetTable(),
